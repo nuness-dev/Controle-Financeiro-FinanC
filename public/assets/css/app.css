@@ -1,0 +1,95 @@
+body {
+    font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
+}
+
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-thumb { background-color: rgb(148 163 184 / 0.5); border-radius: 999px; }
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.15rem 0.6rem;
+    border-radius: 999px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    line-height: 1.4;
+    white-space: nowrap;
+}
+
+.badge-receita, .badge-entrada { background-color: #d1fae5; color: #047857; }
+.badge-despesa, .badge-saida { background-color: #ffe4e6; color: #be123c; }
+.badge-transferencia { background-color: #dbeafe; color: #1d4ed8; }
+.badge-pendente { background-color: #fef3c7; color: #b45309; }
+.badge-pago { background-color: #d1fae5; color: #047857; }
+.badge-cancelado { background-color: #f1f5f9; color: #94a3b8; text-decoration: line-through; }
+.badge-aberta { background-color: #dbeafe; color: #1d4ed8; }
+.badge-fechada { background-color: #fef3c7; color: #b45309; }
+.badge-paga { background-color: #d1fae5; color: #047857; }
+.badge-atrasada { background-color: #ffe4e6; color: #be123c; }
+
+html.dark .badge-receita, html.dark .badge-entrada, html.dark .badge-pago, html.dark .badge-paga { background-color: rgb(16 185 129 / 0.15); color: #6ee7b7; }
+html.dark .badge-despesa, html.dark .badge-saida, html.dark .badge-atrasada { background-color: rgb(244 63 94 / 0.15); color: #fda4af; }
+html.dark .badge-transferencia, html.dark .badge-aberta { background-color: rgb(59 130 246 / 0.15); color: #93c5fd; }
+html.dark .badge-pendente, html.dark .badge-fechada { background-color: rgb(245 158 11 / 0.15); color: #fcd34d; }
+html.dark .badge-cancelado { background-color: #334155; color: #64748b; }
+
+.toast {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    z-index: 60;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    min-width: 280px;
+    max-width: 360px;
+    padding: 0.85rem 1rem;
+    border-radius: 0.65rem;
+    font-size: 0.875rem;
+    box-shadow: 0 10px 25px -5px rgb(0 0 0 / 0.15);
+}
+.toast-success { background-color: #ecfdf5; color: #065f46; border: 1px solid #a7f3d0; }
+.toast-error { background-color: #fff1f2; color: #9f1239; border: 1px solid #fecdd3; }
+html.dark .toast-success { background-color: #052e21; color: #6ee7b7; border-color: #065f46; }
+html.dark .toast-error { background-color: #2f0a13; color: #fda4af; border-color: #9f1239; }
+
+.spinner {
+    width: 1rem; height: 1rem; border-radius: 999px;
+    border: 2px solid currentColor; border-right-color: transparent;
+    animation: spin 0.6s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+[data-lucide] { width: 1em; height: 1em; }
+
+/* Tabela financeira no desktop -> cards no mobile */
+@media (max-width: 767px) {
+    .fin-table thead { display: none; }
+    .fin-table, .fin-table tbody, .fin-table tr, .fin-table td { display: block; width: 100%; }
+    .fin-table tr {
+        margin-bottom: 0.75rem;
+        border-radius: 0.75rem;
+        border: 1px solid rgb(226 232 240);
+        padding: 0.75rem 1rem;
+    }
+    html.dark .fin-table tr { border-color: rgb(30 41 59); }
+    .fin-table td { border: none !important; padding: 0.25rem 0 !important; }
+}
+
+.progress-bar { height: 0.5rem; border-radius: 999px; background-color: rgb(226 232 240); overflow: hidden; }
+html.dark .progress-bar { background-color: rgb(30 41 59); }
+.progress-bar > div { height: 100%; transition: width 0.4s ease; }
+
+/* Sidebar recolhida (só desktop, aplicado via JS no atributo data-collapsed) */
+@media (min-width: 1024px) {
+    aside[data-collapsed="true"] .sidebar-label,
+    aside[data-collapsed="true"] #sidebar-brand {
+        display: none;
+    }
+    aside[data-collapsed="true"] nav a,
+    aside[data-collapsed="true"] #sidebar-collapse,
+    aside[data-collapsed="true"] #logout-button {
+        justify-content: center;
+    }
+}
