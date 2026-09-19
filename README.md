@@ -66,10 +66,6 @@ source database/seed.sql;
 - Admin: `admin@financ.dev` (senha: `admin123`)
 - Usuário: `usuario@financ.dev` (senha: `usuario123`)
 
-## Screenshots
-
-*(Coloque aqui 2 ou 3 prints do sistema rodando, principalmente do dashboard e da tela de transações)*
-
 ## Próximos passos (To-do)
 
 - [ ] Implementar testes unitários com PHPUnit.
